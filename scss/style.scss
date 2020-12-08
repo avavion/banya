@@ -1,0 +1,320 @@
+*,
+*:after,
+*:before {
+  padding: 0;
+  margin: 0;
+  outline: none;
+  box-sizing: border-box;
+}
+
+@import "__mixins.scss";
+
+:root {
+  --container-width: 1170px;
+  --animation-duration: 0.3s;
+  --section-margin: 80px 0;
+  --color--primary: #866d5c;
+}
+
+.container {
+  max-width: var(--container-width);
+  padding: 0px 15px;
+  margin: 0 auto;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @include Raleway;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  color: rgb(22, 22, 22);
+  background-color: rgb(240, 240, 240);
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: #eee;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--color--primary);
+  }
+}
+
+// Ссылки
+
+a {
+  text-decoration: none;
+  color: #000000;
+  font-weight: 600;
+}
+
+// Списки
+
+ol,
+ul {
+  list-style-type: none;
+  @include flex(row);
+}
+
+li {
+  @include flex(row, center, center);
+}
+
+.list {
+  @include flex(row, center, flex-start);
+}
+
+// Кнопки
+
+.button {
+  padding: 15px 60px;
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+  @include flex(row, center, center);
+  border-radius: 8px;
+  font-size: 1.25rem;
+  transition: color var(--animation-duration) ease-in-out, background-color var(--animation-duration) ease-in-out;
+  &--primary {
+    background-color: var(--color--primary);
+    &:hover {
+      background-color: #685448;
+    }
+  }
+  &--secondary {
+    border: 1px solid var(--color--primary);
+  }
+}
+
+// Удобства
+
+.flex {
+  display: flex;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex--center {
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.grid {
+  display: grid;
+  &-item {
+    @include flex(column, stretch, space-between);
+    &__wrap {
+      height: auto;
+      width: 100%;
+    }
+    &__image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+// Section
+
+.section {
+  margin: var(--section-margin);
+  &-header {
+    @include flex(column, flex-start, center);
+    margin-bottom: 40px;
+    @include OpenSans;
+    &__title {
+      font-size: 48px;
+      font-weight: 700;
+    }
+  }
+}
+
+// Header
+
+.header {
+  &-wrap {
+    box-shadow: 0px 4px 20px -18px #000000;
+    background-color: #fff;
+    position: relative;
+    z-index: 1;
+  }
+  &-nav {
+    height: 100px;
+    @include flex(row, center, space-between);
+  }
+  &-logo {
+    &__title {
+      color: var(--color--primary);
+    }
+  }
+  &-menu {
+    &-item {
+      overflow: hidden;
+      padding: 10px 0;
+      position: relative;
+      &:not(:last-child) {
+        margin-right: 40px;
+      }
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        transform: translateX(-100%);
+        width: 100%;
+        height: 2px;
+        background-color: var(--color--primary);
+        transition: transform var(--animation-duration) ease-in-out;
+      }
+      &:hover {
+        & a {
+          color: var(--color--primary);
+        }
+        &:after {
+          transform: translateX(0px);
+        }
+      }
+    }
+  }
+}
+
+.hero {
+  background-image: url("../assets/images/item-2.jpg");
+  background-size: cover;
+  background-position: center center;
+  &-dark {
+    padding: 80px 0;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  &-content {
+    color: #fff;
+    @include OpenSans;
+    @include flex(column, flex-start, center);
+    height: 80vh;
+    &__title {
+      & span {
+        font-size: 64px;
+      }
+      margin-bottom: 8px;
+    }
+    &__text {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 60px;
+    }
+    &__button {
+      @include Raleway;
+    }
+  }
+}
+
+// Catalog
+
+.catalog {
+  &-items {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+  }
+  &-item {
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 3px 7px 20px -15px #000000;
+    &__wrap {
+      margin-bottom: 8px;
+      & img {
+        height: 300px;
+        border-radius: 4px;
+      }
+    }
+    &__title {
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+    &__content {
+      font-size: 14px;
+      margin-bottom: 16px;
+      @include OpenSans;
+    }
+    &__price {
+      text-align: center;
+      margin-bottom: 8px;
+    }
+  }
+  &-buttons {
+    @include mt(60px);
+  }
+}
+
+// Slide Top
+
+.scroll {
+  &__button {
+    color: var(--color--primary);
+  }
+  cursor: pointer;
+  position: fixed;
+  border-radius: 8px;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: #fff;
+  @include flex(row, center, center);
+  transform: translateY(100px);
+  transition: background-color var(--animation-duration) ease-in-out, transform var(--animation-duration) ease-in-out;
+  &:hover {
+    background-color: rgb(200, 200, 200);
+  }
+  &--active {
+    transform: translateY(0px);
+  }
+}
+
+// Footer
+
+.footer {
+  padding: 60px 0;
+  background-color: var(--color--primary);
+  &-list {
+    color: #fff;
+    &-item {
+      align-items: flex-start;
+      &__title {
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+    }
+  }
+  &-subList {
+    align-items: flex-start;
+    &-item {
+      &__link {
+        padding: 5px 0;
+        color: #fff;
+        transition: color var(--animation-duration) ease-in-out, margin var(--animation-duration) ease-in-out;
+        &:hover {
+          color: rgb(172, 172, 172);
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+}
+
+// Slider
+
+.slider {
+  position: relative;
+  @include flex(column, center, flex-start);
+}

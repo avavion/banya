@@ -1,0 +1,22 @@
+@mixin flex($direction, $align: stretch, $justify: flex-start) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+@mixin mt($margin) {
+  margin-top: $margin;
+}
+
+@mixin mb($margin) {
+  margin-bottom: $margin;
+}
+
+@mixin OpenSans {
+  font-family: "Open Sans", "Raleway", sans-serif;
+}
+
+@mixin Raleway {
+  font-family: "Raleway", "Open Sans", sans-serif;
+}
