@@ -71,6 +71,9 @@ li {
 // Кнопки
 
 .button {
+  cursor: pointer;
+  outline: none;
+  border: none;
   padding: 15px 60px;
   color: #fff;
   font-weight: 700;
@@ -125,10 +128,14 @@ li {
   }
 }
 
+.row {
+  @include flex(column, stretch, flex-start);
+}
+
 // Section
 
 .section {
-  margin: var(--section-margin);
+  padding: var(--section-margin);
   &-header {
     @include flex(column, flex-start, center);
     margin-bottom: 40px;
@@ -256,6 +263,13 @@ li {
   }
 }
 
+.subscribe {
+  background-image: url("../assets/images/item-4.jpg");
+  filter: brightness(0.5);
+  background-size: cover;
+  background-position: center;
+}
+
 // Slide Top
 
 .scroll {
@@ -284,12 +298,17 @@ li {
 // Footer
 
 .footer {
+  margin-top: 80px;
   padding: 60px 0;
   background-color: var(--color--primary);
   &-list {
     color: #fff;
+    align-items: flex-start;
     &-item {
       align-items: flex-start;
+      &:not(:last-child) {
+        margin-right: 80px;
+      }
       &__title {
         font-size: 24px;
         margin-bottom: 10px;
@@ -317,4 +336,253 @@ li {
 .slider {
   position: relative;
   @include flex(column, center, flex-start);
+  &-item {
+    position: absolute;
+    transition: transform var(--animation-duration) ease-in-out;
+  }
+  &-list {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    transition: transform var(--animation-duration) ease-in-out;
+  }
+  &-dots {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    height: 50px;
+    transform: translateX(-50%);
+    width: 100%;
+    @include flex(row, center, center);
+  }
+  &-dot {
+    position: relative;
+    cursor: pointer;
+    &:not(:last-child) {
+      margin-right: 16px;
+    }
+    &:after {
+      content: "";
+      width: 20px;
+      height: 20px;
+      background-color: #f0f0f0;
+      position: absolute;
+      border-radius: 50%;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      border: 1px solid #bd9d87;
+      transition: background-color var(--animation-duration) ease-in-out;
+    }
+    &:hover:after {
+      background-color: var(--color--primary);
+    }
+  }
+}
+
+// Modal
+
+.modal {
+  position: fixed;
+  z-index: 999;
+  // background-color: rgba(0, 0, 0, 0.5);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  transition: transform var(--animation-duration) ease-in-out;
+  transform: translateY(-100vh);
+  &--active {
+    transform: translateY(0);
+  }
+  &-window {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    width: 500px;
+    background-color: #fff;
+    transform: translate(-50%, -50%);
+    padding: 25px;
+    border-radius: 8px;
+  }
+  &-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 16px;
+    &__title {
+      font-size: 42px;
+    }
+  }
+  &-form {
+    & .row {
+      &:not(:last-child) {
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
+
+// Форма
+.form {
+  @include flex(column);
+  &__label {
+    margin-bottom: 8px;
+  }
+  &__input {
+    border: 1px solid var(--color--primary);
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 16px;
+    background-color: rgb(255, 255, 255);
+  }
+  &-buttons {
+    margin-top: 16px;
+  }
+}
+
+// Команда
+
+.team {
+  &-grid {
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 350px;
+    gap: 20px;
+    &-img {
+      border-radius: 50%;
+      width: 200px;
+      height: 200px;
+      overflow: hidden;
+    }
+    &__image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  &-item {
+    &__title {
+      margin: 10px 0;
+    }
+    @include flex(column, center, center);
+    &:last-child {
+      & h3 {
+        font-size: 36px;
+        font-weight: 700;
+        margin-top: 20px;
+      }
+      & img {
+        border-radius: 8px;
+        height: calc(350px - 20%);
+      }
+      grid-column: 1 / -1;
+    }
+  }
+}
+
+// Партнеры
+.partners {
+  background-color: #fff;
+  &-list {
+    gap: 30px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 150px;
+  }
+  &-item {
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+}
+
+.feature {
+  &-item {
+    &__wrap {
+      width: 100%;
+      height: 100%;
+      background-color: #000000;
+    }
+    &__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.5;
+    }
+    &-content {
+      color: #fff;
+      text-align: center;
+      max-width: 800px;
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      &__title {
+        font-size: 48px;
+        margin-bottom: 8px;
+      }
+      &__text {
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+.excellence {
+  background-color: #fff;
+  &-grid {
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: auto;
+    gap: 60px;
+  }
+  &-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    &__title {
+      margin-bottom: 8px;
+    }
+    &__icon {
+      font-size: 4em;
+    }
+  }
+}
+
+@media screen and (max-width: 998px) {
+  .catalog {
+    &-items {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  .team {
+    &-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 50px;
+      &-img {
+        width: 300px;
+        height: 300px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 675px) {
+  .team {
+    &-grid {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+  .catalog {
+    &-items {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
 }
