@@ -27,7 +27,7 @@
                 <a href="/" class="list-item__link header-menu-item__link">Главная</a>
               </li>
               <li class="list-item header-menu-item">
-                <a href="/" class="list-item__link header-menu-item__link">Бани</a>
+                <a href="#catalog" class="list-item__link header-menu-item__link">Бани</a>
               </li>
               <li class="list-item header-menu-item">
                 <a href="/" class="list-item__link header-menu-item__link">О нас</a>
@@ -150,7 +150,52 @@
           <h2 class="section-header__title">Наши преимущства</h2>
         </div>
         <div class="section-content">
-          <div class="slider feature-slider">
+          <div class="slider__wrapper">
+            <a class="slider-arrow slider-prev-arrow">
+              <i class="fas fa-chevron-left"></i>
+            </a>
+            <ul class="slider">
+              <!-- START -->
+              <li class="slider-item">
+                <div class="feature-item__wrap">
+                  <img src="assets/images/item-1.png" alt="" class="feature-item__img" />
+                </div>
+                <div class="feature-item-content">
+                  <h2 class="feature-item-content__title">Качественные материалы</h2>
+                  <p class="feature-item-content__text">
+                    Мы сотрудничаем с огромным количеством компаний, которые занимаються переработкой дерева.
+                  </p>
+                </div>
+              </li>
+              <li class="slider-item">
+                <div class="feature-item__wrap">
+                  <img src="assets/images/item-2.jpg" alt="" class="feature-item__img" />
+                </div>
+                <div class="feature-item-content">
+                  <h2 class="feature-item-content__title">Качественные материалы</h2>
+                  <p class="feature-item-content__text">
+                    Мы сотрудничаем с огромным количеством компаний, которые занимаються переработкой дерева.
+                  </p>
+                </div>
+              </li>
+              <li class="slider-item">
+                <div class="feature-item__wrap">
+                  <img src="assets/images/item-3.jpg" alt="" class="feature-item__img" />
+                </div>
+                <div class="feature-item-content">
+                  <h2 class="feature-item-content__title">Качественные материалы</h2>
+                  <p class="feature-item-content__text">
+                    Мы сотрудничаем с огромным количеством компаний, которые занимаються переработкой дерева.
+                  </p>
+                </div>
+              </li>
+              <!-- END -->
+            </ul>
+            <a class="slider-arrow slider-next-arrow">
+              <i class="fas fa-chevron-right"></i>
+            </a>
+          </div>
+          <!-- <div class="slider feature-slider">
             <ul class="slider-list feature-list">
               <li class="slider-item feature-item">
                 <div class="feature-item__wrap">
@@ -191,14 +236,14 @@
               <input class="slider-dot" type="radio" name="slider" />
               <input class="slider-dot" type="radio" name="slider" />
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </section>
     <!-- /Преимущства компании -->
 
     <!-- Товары компании -->
-    <section class="section catalog">
+    <section class="section catalog" id="catalog">
       <div class="container">
         <div class="section-header">
           <h2 class="section-header__title">Бани под ключ</h2>
