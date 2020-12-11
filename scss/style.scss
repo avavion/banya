@@ -193,6 +193,22 @@ li {
       }
     }
   }
+  &-burger {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+    &__line {
+      border-radius: 8px;
+      width: 30px;
+      height: 4px;
+      background-color: var(--color--primary);
+      &:not(:last-child) {
+        margin-bottom: 4px;
+      }
+    }
+  }
 }
 
 .hero {
@@ -265,9 +281,25 @@ li {
 
 .subscribe {
   background-image: url("../assets/images/item-4.jpg");
-  filter: brightness(0.5);
   background-size: cover;
   background-position: center;
+  padding: 0;
+  &--dark {
+    min-height: 100%;
+    min-width: 100%;
+    padding: var(--section-margin);
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  &-form {
+    .row:not(:last-child) {
+      margin-bottom: 20px;
+    }
+    &__label {
+      font-size: 18px;
+      color: #fff;
+      font-weight: 700;
+    }
+  }
 }
 
 // Slide Top
@@ -582,6 +614,11 @@ li {
       }
     }
   }
+  .excellence {
+    &-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
 }
 
 @media screen and (max-width: 675px) {
@@ -593,6 +630,117 @@ li {
   .catalog {
     &-items {
       grid-template-columns: repeat(1, 1fr);
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  :root {
+    --section-margin: 40px 0;
+  }
+  .section {
+    &-header {
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      &__title {
+        font-size: 36px;
+      }
+    }
+  }
+  .slider {
+    &__wrapper {
+      align-items: flex-end;
+    }
+  }
+  .header {
+    &-menu {
+      display: none;
+    }
+    &-burger {
+      display: flex;
+    }
+  }
+  .feature {
+    &-item {
+      &-content {
+        padding: 10px;
+        &__title {
+          font-size: 36px;
+        }
+        &__text {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+  .hero {
+    &-content {
+      &__title {
+        font-size: 24px;
+        & span {
+          font-size: 48px;
+        }
+      }
+    }
+  }
+  .excellence {
+    &-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  .footer {
+    &-list {
+      flex-direction: column;
+      &-item {
+        &:not(:last-child) {
+          margin-right: 0;
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+  .modal {
+    &-window {
+      width: 100%;
+    }
+    &-header {
+      &__title {
+        font-size: 36px;
+      }
+    }
+  }
+  .team {
+    &-item {
+      &__title {
+        text-align: center;
+      }
+    }
+  }
+  .partners {
+    &-list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .button {
+    font-size: 1rem;
+  }
+  .hero {
+    &-content {
+      height: 60vh;
+      &__title {
+        font-size: 18px;
+        & span {
+          font-size: 30px;
+        }
+      }
+      &__text {
+        font-size: 14px;
+        margin-bottom: 20px;
+      }
     }
   }
 }

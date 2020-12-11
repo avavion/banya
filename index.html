@@ -33,6 +33,11 @@
                 <a href="/" class="list-item__link header-menu-item__link">О нас</a>
               </li>
             </ul>
+            <div class="header-burger js-burger-open">
+              <i class="header-burger__line"></i>
+              <i class="header-burger__line"></i>
+              <i class="header-burger__line"></i>
+            </div>
           </nav>
         </div>
       </div>
@@ -195,48 +200,6 @@
               <i class="fas fa-chevron-right"></i>
             </a>
           </div>
-          <!-- <div class="slider feature-slider">
-            <ul class="slider-list feature-list">
-              <li class="slider-item feature-item">
-                <div class="feature-item__wrap">
-                  <img src="assets/images/item-2.jpg" alt="" class="feature-item__img" />
-                </div>
-                <div class="feature-item-content">
-                  <h2 class="feature-item-content__title">Качественные материалы</h2>
-                  <p class="feature-item-content__text">
-                    Мы сотрудничаем с огромным количеством компаний, которые занимаються переработкой дерева.
-                  </p>
-                </div>
-              </li>
-              <li class="slider-item feature-item">
-                <div class="feature-item__wrap">
-                  <img src="assets/images/item-2.jpg" alt="" class="feature-item__img" />
-                </div>
-                <div class="feature-item-content">
-                  <h2 class="feature-item-content__title">Качественные материалы</h2>
-                  <p class="feature-item-content__text">
-                    Мы сотрудничаем с огромным количеством компаний, которые занимаються переработкой дерева.
-                  </p>
-                </div>
-              </li>
-              <li class="slider-item feature-item">
-                <div class="feature-item__wrap">
-                  <img src="assets/images/item-2.jpg" alt="" class="feature-item__img" />
-                </div>
-                <div class="feature-item-content">
-                  <h2 class="feature-item-content__title">Качественные материалы</h2>
-                  <p class="feature-item-content__text">
-                    Мы сотрудничаем с огромным количеством компаний, которые занимаються переработкой дерева.
-                  </p>
-                </div>
-              </li>
-            </ul>
-            <div class="slider-dots">
-              <input class="slider-dot" type="radio" name="slider" />
-              <input class="slider-dot" type="radio" name="slider" />
-              <input class="slider-dot" type="radio" name="slider" />
-            </div>
-          </div> -->
         </div>
       </div>
     </section>
@@ -381,13 +344,18 @@
     <!-- /Партнеры -->
 
     <section class="section subscribe">
-      <div class="container">
-        <form class="form">
-          <div class="row">
-            <label for="" class="form__label">Подписаться на рассылку</label>
-            <input type="text" class="form__input" />
-          </div>
-        </form>
+      <div class="subscribe--dark">
+        <div class="container">
+          <form class="form subscribe-form">
+            <div class="row">
+              <label for="" class="form__label subscribe-form__label">Подписаться на рассылку</label>
+              <input placeholder="avavionmvm@gmail.com" name="emailSubscribe" type="text" class="form__input" />
+            </div>
+            <div class="row">
+              <button class="button button--primary">Подписаться</button>
+            </div>
+          </form>
+        </div>
       </div>
     </section>
 
